@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu — Mt Evelyn Pizza & Pasta</title>
+<title>Menu — Mt Evelyn Pizza &amp; Pasta</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600&family=Pacifico&display=swap" rel="stylesheet">
@@ -9,17 +11,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --paper:     #F7F3EC;
-    --card:      #FFFFFF;
-    --ink:       #1B1A17;
-    --ink-dim:   #6f6a61;
-    --line:      #e7e0d4;
+    --bg:        #0c0b0a;
+    --bg2:       #141210;
+    --panel:     #15130e;
+    --panel-2:   #1b1812;
+    --cream:     #F5EDDD;
+    --cream-dim: rgba(245,237,221,0.58);
+    --cream-faint: rgba(245,237,221,0.28);
     --red:       #CE3127;
     --green:     #5BA03E;
-    --green-deep:#47812f;
-    --gold:      #C98A1E;
-    --gold-bright:#ECA92C;
-
+    --gold:      #ECA92C;
+    --line:      rgba(236,169,44,0.16);
     --f-display: 'Anton', sans-serif;
     --f-head:    'Oswald', sans-serif;
     --f-body:    'Barlow', sans-serif;
@@ -27,116 +29,98 @@
   }
 
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--paper); color: var(--ink);
-    font-family: var(--f-body); font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-  }
-  ::selection { background: var(--red); color: #fff; }
+  body { background: var(--bg); color: var(--cream); font-family: var(--f-body); font-weight: 300; -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--red); color: var(--cream); }
 
   /* —— NAV —— */
-  nav {
-    position: sticky; top: 0; z-index: 1000;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 48px; background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
-  }
-  .nav-logo {
-    font-family: var(--f-display); font-size: 22px; letter-spacing: 0.04em; line-height: 1;
-    color: var(--ink); text-transform: uppercase; text-decoration: none;
-  }
-  .nav-logo b { color: var(--red); font-weight: 400; }
-  .nav-logo i { color: var(--green); font-style: normal; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a {
-    font-family: var(--f-head); font-size: 13px; font-weight: 500; letter-spacing: 0.1em;
-    color: var(--ink-dim); text-decoration: none; text-transform: uppercase; transition: color .2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--red); }
-  .nav-cta {
-    font-family: var(--f-head); font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
-    color: #fff; background: var(--red); padding: 10px 22px; text-decoration: none;
-    text-transform: uppercase; border-radius: 3px; transition: background .2s, transform .15s;
-  }
-  .nav-cta:hover { background: #b1271e; transform: translateY(-1px); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(8,7,6,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: var(--f-display); font-size: 22px; letter-spacing: 0.04em; line-height: 1; color: var(--cream); text-transform: uppercase; text-decoration: none; }
+  .nav-logo b { color: var(--red); font-weight: 400; } .nav-logo i { color: var(--green); font-style: normal; }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { font-family: var(--f-head); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: var(--cream-dim); text-decoration: none; text-transform: uppercase; transition: color .2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0; background: var(--gold); transition: width .25s; }
+  .nav-links a:hover { color: var(--cream); } .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+  .nav-links a.active { color: var(--gold); }
+  .nav-cta { font-family: var(--f-head); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #160d04; background: var(--gold); padding: 10px 22px; text-decoration: none; text-transform: uppercase; border-radius: 2px; transition: background .2s, transform .15s; }
+  .nav-cta:hover { background: #f7bc44; transform: translateY(-1px); }
 
-  /* —— HEADER —— */
-  .menu-hero { text-align: center; padding: 70px 24px 30px; position: relative; }
-  .eyebrow {
-    display: inline-block; font-family: var(--f-head); font-weight: 600; font-size: 13px;
-    letter-spacing: 0.2em; text-transform: uppercase; color: var(--green);
-    padding: 6px 16px; border: 1px solid var(--green); border-radius: 30px; margin-bottom: 18px;
-  }
-  .menu-hero h1 {
-    font-family: var(--f-display); font-size: clamp(48px, 9vw, 104px); line-height: .9;
-    text-transform: uppercase; color: var(--ink); letter-spacing: 0.01em;
-  }
-  .menu-hero h1 em { font-style: italic; color: var(--gold); transform: skewX(-7deg); display: inline-block; }
-  .menu-hero p { font-family: var(--f-script); font-size: clamp(18px, 3vw, 26px); color: var(--red); margin-top: 14px; }
+  /* —— header —— */
+  .page-hero { text-align: center; padding: 130px 32px 26px; position: relative; overflow: hidden; }
+  .page-hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 340px; pointer-events: none; background: radial-gradient(ellipse, rgba(206,49,39,0.18) 0%, rgba(236,169,44,0.05) 45%, transparent 72%); }
+  .page-hero > * { position: relative; z-index: 2; }
+  .page-eyebrow { font-family: var(--f-script); font-size: 22px; color: var(--green); margin-bottom: 10px; }
+  .page-title { font-family: var(--f-display); font-size: clamp(48px, 9vw, 104px); line-height: .9; text-transform: uppercase; color: var(--cream); letter-spacing: 0.01em; }
+  .page-title em { font-style: italic; color: var(--gold); transform: skewX(-7deg); display: inline-block; }
 
-  .size-bar {
-    display: inline-flex; flex-wrap: wrap; gap: 0; margin: 26px auto 0;
-    border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-  }
-  .size-bar span { font-family: var(--f-head); font-size: 14px; padding: 12px 22px; border-right: 1px solid var(--line); }
-  .size-bar span:last-child { border-right: none; }
-  .size-bar strong { color: var(--red); font-weight: 600; letter-spacing: 0.04em; }
+  /* —— lunch banner —— */
+  .lunch-banner { max-width: 1120px; margin: 30px auto 0; padding: 30px 40px; border-radius: 6px; border: 2px solid var(--gold); background: linear-gradient(135deg, rgba(206,49,39,0.12), rgba(20,18,16,0.7)); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .lunch-banner-text h3 { font-family: var(--f-display); font-size: 28px; text-transform: uppercase; color: var(--gold); transform: skewX(-5deg); margin-bottom: 8px; }
+  .lunch-banner-text p { font-family: var(--f-body); font-size: 14px; color: var(--cream-dim); line-height: 1.7; max-width: 54ch; }
+  .lunch-banner-price { font-family: var(--f-display); font-size: 60px; color: var(--cream); white-space: nowrap; line-height: 1; }
+  .lunch-banner-price span { display: block; font-family: var(--f-head); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-top: 4px; }
 
-  /* —— CARDS —— */
-  .cards {
-    max-width: 1180px; margin: 0 auto; padding: 30px 32px 80px;
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
-  }
-  .card {
-    background: var(--card); border-radius: 16px; overflow: hidden;
-    border: 1px solid var(--line); border-top: 5px solid var(--accent, var(--red));
-    box-shadow: 0 14px 40px rgba(27,26,23,0.07); display: flex; flex-direction: column;
-    transition: transform .25s, box-shadow .25s;
-  }
-  .card:hover { transform: translateY(-5px); box-shadow: 0 22px 54px rgba(27,26,23,0.12); }
-  .card.red    { --accent: var(--red); }
-  .card.gold   { --accent: var(--gold-bright); }
-  .card.green  { --accent: var(--green); }
-  .card.dark   { --accent: var(--ink); }
+  /* —— tabs —— */
+  .menu-tabs { display: flex; gap: 0; padding: 46px 0 0; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; }
+  .menu-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { font-family: var(--f-head); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 14px 24px; background: none; border: none; color: var(--cream-dim); cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color .2s, border-color .2s; }
+  .tab-btn:hover { color: var(--cream); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-  .card-head { padding: 26px 30px 18px; display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--line); }
-  .card-emoji {
-    width: 52px; height: 52px; flex: none; border-radius: 12px; display: flex; align-items: center; justify-content: center;
-    font-size: 26px; background: color-mix(in srgb, var(--accent) 14%, #fff);
-  }
-  .card-title { font-family: var(--f-display); font-size: 30px; text-transform: uppercase; letter-spacing: 0.01em; line-height: 1; color: var(--ink); }
-  .card-note { font-family: var(--f-head); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-dim); margin-top: 4px; }
+  /* —— sections —— */
+  .menu-section { display: none; padding: 50px 32px 20px; max-width: 1120px; margin: 0 auto; }
+  .menu-section.active { display: block; animation: fadeIn .4s both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: none;} }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+  .sec-head h2 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 44px); text-transform: uppercase; color: var(--cream); letter-spacing: 0.01em; }
+  .sec-head h2 em { font-style: italic; color: var(--gold); transform: skewX(-6deg); display: inline-block; }
+  .price-pills { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+  .price-pills span { font-family: var(--f-head); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--line); padding: 6px 12px; border-radius: 3px; }
+  .price-pills span.gf { color: var(--green); border-color: rgba(91,160,62,0.4); }
+  .sec-divider { width: 56px; height: 3px; background: linear-gradient(to right, var(--red), transparent); margin: 14px 0 28px; }
 
-  .card-body { padding: 10px 30px 28px; }
-  .item { display: flex; align-items: baseline; gap: 12px; padding: 13px 0; border-bottom: 1px dashed var(--line); }
-  .item:last-child { border-bottom: none; }
-  .item-main { flex: 1; }
-  .item-name {
-    font-family: var(--f-head); font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em;
-    color: var(--ink); display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
-  }
-  .item-desc { font-family: var(--f-body); font-size: 13px; color: var(--ink-dim); margin-top: 2px; line-height: 1.5; }
-  .item-price { font-family: var(--f-head); font-size: 16px; font-weight: 600; color: var(--gold); white-space: nowrap; }
-  .veg {
-    font-family: var(--f-head); font-size: 9px; font-weight: 700; width: 16px; height: 16px;
-    border-radius: 50%; background: var(--green); color: #fff; display: inline-flex; align-items: center; justify-content: center;
-  }
-  .legend { max-width: 1180px; margin: 0 auto; padding: 0 32px 70px; display: flex; gap: 24px; flex-wrap: wrap; }
-  .legend div { display: flex; align-items: center; gap: 8px; font-family: var(--f-head); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-dim); }
-  .legend strong { color: var(--green); }
+  /* —— image cards —— */
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+  .menu-card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .menu-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 16px 38px rgba(0,0,0,0.4); }
+  .menu-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: var(--panel-2); transition: transform .4s ease; }
+  .menu-card:hover .menu-card-img { transform: scale(1.06); }
+  .menu-card-body { padding: 16px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+  .menu-card-name { font-family: var(--f-head); font-size: 17px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--cream); margin-bottom: 7px; line-height: 1.2; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .menu-card-desc { font-family: var(--f-body); font-size: 13px; color: var(--cream-dim); line-height: 1.55; flex: 1; }
+  .menu-card-price { font-family: var(--f-head); font-size: 15px; font-weight: 600; color: var(--gold); margin-top: 14px; letter-spacing: 0.03em; }
+  .item-tag { font-family: var(--f-head); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; background: var(--green); color: #fff; border-radius: 100px; padding: 3px 9px; vertical-align: middle; }
 
-  /* —— FOOTER —— */
-  footer { background: var(--ink); color: #e9e3d6; text-align: center; padding: 40px 24px; }
-  footer .brand { font-family: var(--f-display); font-size: 24px; text-transform: uppercase; letter-spacing: 0.03em; }
-  footer .brand b { color: var(--red); font-weight: 400; } footer .brand i { color: var(--green); font-style: normal; }
-  footer p { font-family: var(--f-body); font-size: 13px; color: #b3ab9c; margin-top: 8px; }
-  footer a { color: var(--gold-bright); text-decoration: none; }
+  .note-box { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 4px; padding: 16px 20px; margin-top: 22px; font-family: var(--f-body); font-size: 14px; color: var(--cream-dim); line-height: 1.6; }
 
-  @media (max-width: 860px) {
-    nav { padding: 14px 20px; } .nav-links { display: none; }
-    .cards { grid-template-columns: 1fr; padding: 24px 18px 60px; gap: 22px; }
-  }
+  .menu-card { cursor: pointer; }
+
+  /* —— price modal —— */
+  .modal-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(6,5,4,0.82); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; padding: 24px; }
+  .modal-overlay.open { display: flex; animation: fadeIn .2s both; }
+  .modal { background: var(--panel); border: 1px solid var(--gold); border-radius: 10px; max-width: 440px; width: 100%; overflow: hidden; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+  .modal-img { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--panel-2); }
+  .modal-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(12,11,10,0.75); color: var(--cream); font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+  .modal-close:hover { background: var(--red); }
+  .modal-body { padding: 24px 26px 28px; }
+  .modal-name { font-family: var(--f-display); font-size: 30px; text-transform: uppercase; color: var(--cream); line-height: 1; }
+  .modal-desc { font-family: var(--f-body); font-size: 14px; color: var(--cream-dim); line-height: 1.6; margin: 10px 0 18px; }
+  .modal-prices { display: flex; flex-direction: column; }
+  .modal-prices .row { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px dashed var(--line); }
+  .modal-prices .row:last-child { border-bottom: none; }
+  .modal-size { font-family: var(--f-head); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); }
+  .modal-size.gf { color: var(--green); }
+  .modal-amt { font-family: var(--f-display); font-size: 26px; color: var(--gold); }
+
+  /* —— footer —— */
+  footer { background: var(--bg); border-top: 1px solid var(--line); text-align: center; padding: 44px 24px; margin-top: 40px; }
+  footer .foot-brand { font-family: var(--f-display); font-size: 26px; text-transform: uppercase; letter-spacing: 0.03em; }
+  footer .foot-brand b { color: var(--red); font-weight: 400; } footer .foot-brand i { color: var(--green); font-style: normal; }
+  footer p { font-family: var(--f-body); font-size: 13px; color: var(--cream-dim); margin-top: 8px; }
+  footer a { color: var(--gold); text-decoration: none; }
+  .fineprint { text-align: center; padding: 26px 32px 0; color: var(--cream-faint); font-size: 12px; font-family: var(--f-body); max-width: 1120px; margin: 0 auto; }
+
+  @media (max-width: 860px) { nav { padding: 12px 20px; } .nav-links { display: none; } }
+  @media (max-width: 640px) { .menu-section { padding: 40px 18px 10px; } .page-hero { padding: 110px 18px 22px; } .lunch-banner { padding: 24px 22px; } }
 </style>
 </head>
 <body>
@@ -146,7 +130,6 @@
   <a class="nav-logo" href="index.html">Mt Evelyn <b>Pizza</b> &amp; <i>Pasta</i></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="index.html#deal">Lunch Deal</a></li>
     <li><a href="menu.html" class="active">Menu</a></li>
     <li><a href="index.html#hours">Hours</a></li>
     <li><a href="index.html#bar">Bar</a></li>
@@ -155,110 +138,219 @@
   <a href="tel:0397363855" class="nav-cta">Call (03) 9736 3855</a>
 </nav>
 
-<!-- HEADER -->
-<header class="menu-hero">
-  <span class="eyebrow">Crafted Fresh Every Day</span>
-  <h1>Our <em>Menu</em></h1>
-  <p>Great Food, Great Times!</p>
-  <div class="size-bar">
-    <span><strong>Pizza — Small</strong> &nbsp;$11.00</span>
-    <span><strong>Large</strong> &nbsp;$15.50</span>
-    <span><strong>Family</strong> &nbsp;$20.00</span>
+<div id="page-menu">
+  <div class="page-hero">
+    <div class="page-eyebrow">Fresh &amp; Made to Order</div>
+    <h1 class="page-title">Our <em>Menu</em></h1>
   </div>
-</header>
 
-<!-- 4 MENU CARDS -->
-<main class="cards">
+  <!-- LUNCH DEAL BANNER -->
+  <div class="lunch-banner">
+    <div class="lunch-banner-text">
+      <h3>The Lunch Deal</h3>
+      <p>Any one of Margherita, Hawaiian, Aussie, Capricciosa or Garlic, plus a Coke. Available 12PM–4PM, Thursday to Saturday.</p>
+    </div>
+    <div class="lunch-banner-price">$9.90<span>Pizza + Coke</span></div>
+  </div>
 
-  <!-- Card 1: Pizza -->
-  <section class="card red">
-    <div class="card-head">
-      <div class="card-emoji">🍕</div>
-      <div>
-        <div class="card-title">Pizza</div>
-        <div class="card-note">Small $11 · Large $15.50 · Family $20</div>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="item"><div class="item-main"><div class="item-name">Margherita <span class="veg">V</span></div><div class="item-desc">Tomato, cheese and oregano.</div></div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Hawaiian</div><div class="item-desc">Ham, pineapple and cheese.</div></div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Aussie</div><div class="item-desc">Ham, bacon and egg.</div></div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Capricciosa</div><div class="item-desc">Ham, mushroom, olives, capsicum and cheese.</div></div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Meat Lovers</div><div class="item-desc">Ham, bacon, salami, beef and BBQ sauce.</div></div></div>
-      <div class="item"><div class="item-main"><div class="item-name">BBQ Chicken</div><div class="item-desc">Chicken, bacon, onion, cheese and BBQ sauce.</div></div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Supreme</div><div class="item-desc">Ham, salami, capsicum, onion, mushroom, olives.</div></div></div>
-    </div>
-  </section>
+  <!-- TABS -->
+  <div class="menu-tabs">
+    <button class="tab-btn active" onclick="showTab('traditional', this)">Traditional Pizza</button>
+    <button class="tab-btn" onclick="showTab('gourmet', this)">Gourmet Pizza</button>
+    <button class="tab-btn" onclick="showTab('pasta', this)">Pastas</button>
+    <button class="tab-btn" onclick="showTab('mains', this)">Mains</button>
+    <button class="tab-btn" onclick="showTab('deals', this)">Other Deals</button>
+    <button class="tab-btn" onclick="showTab('sides', this)">Sides</button>
+    <button class="tab-btn" onclick="showTab('drinks', this)">Cool Drinks</button>
+  </div>
 
-  <!-- Card 2: Gourmet Pizza -->
-  <section class="card gold">
-    <div class="card-head">
-      <div class="card-emoji">⭐</div>
-      <div>
-        <div class="card-title">Gourmet Pizza</div>
-        <div class="card-note">Premium hand-finished</div>
-      </div>
+  <!-- TRADITIONAL PIZZA -->
+  <div id="tab-traditional" class="menu-section active">
+    <div class="sec-head">
+      <h2>Traditional <em>Pizza</em></h2>
+      <div class="price-pills"><span>Small $11</span><span>Large $15.50</span><span>Family $20</span><span class="gf">Gluten Free · Large $19</span></div>
     </div>
-    <div class="card-body">
-      <div class="item"><div class="item-main"><div class="item-name">Lamb &amp; Rocket</div><div class="item-desc">Lamb, caramelised onion, rocket, tzatziki drizzle.</div></div><div class="item-price">$23.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Truffle Mushroom <span class="veg">V</span></div><div class="item-desc">Mushroom, spinach, truffle oil, parmesan.</div></div><div class="item-price">$22.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Smoked Salmon</div><div class="item-desc">Smoked salmon, capers, red onion, cream cheese.</div></div><div class="item-price">$24.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Garlic <span class="veg">V</span></div><div class="item-desc">Garlic, cheese and herbs.</div></div><div class="item-price">$13.00</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Pepperoni</div><div class="item-desc">Pepperoni, cheese and tomato sauce.</div></div><div class="item-price">$16.00</div></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Pepperoni pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Pepperoni</div><div class="menu-card-desc">Tomato, cheese, hot salami, onion, jalapenos and chilli flakes</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Margarita pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Margarita <span class="item-tag">Veg</span></div><div class="menu-card-desc">Tomato, cheese and herbs</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="Garlic pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Garlic <span class="item-tag">Veg</span></div><div class="menu-card-desc">Garlic, cheese and herbs</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=70&auto=format&fit=crop" alt="Vegetarian pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Vegetarian <span class="item-tag">Veg</span></div><div class="menu-card-desc">Tomato, cheese, mushroom, onion, capsicum, olives and garlic</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Aussie pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Aussie</div><div class="menu-card-desc">Tomato, cheese, ham, bacon and egg</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Hawaiian pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Hawaiian</div><div class="menu-card-desc">Tomato, cheese, ham and pineapple</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="Capricciosa pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Capricciosa</div><div class="menu-card-desc">Tomato, cheese, ham, mushroom, olives and garlic</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=70&auto=format&fit=crop" alt="Mexicana pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Mexicana</div><div class="menu-card-desc">Tomato, cheese, hot salami, onion, capsicum and olives</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Marinara pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Marinara</div><div class="menu-card-desc">Tomato, cheese, seafood mix, anchovies and garlic</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="BBQ Chicken pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">BBQ Chicken</div><div class="menu-card-desc">BBQ sauce, cheese, chicken, bacon and onion</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="Napolitana pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Napolitana</div><div class="menu-card-desc">Tomato, cheese, hot salami, anchovies, olives and garlic</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=70&auto=format&fit=crop" alt="Meat Lovers pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Meat Lovers</div><div class="menu-card-desc">BBQ sauce, cheese, ham, beef, hot salami and bacon</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Super Special pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Super Special</div><div class="menu-card-desc">Tomato, cheese, ham, mushroom, onion, capsicum, pineapple, prawns, olives and garlic</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Tropical Chicken pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Tropical Chicken</div><div class="menu-card-desc">Tomato, cheese, ham, chicken, pineapple and prawns</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="Satay Chicken pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Satay Chicken</div><div class="menu-card-desc">Satay sauce, cheese, chicken, bacon and onion</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=70&auto=format&fit=crop" alt="Americana pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Americana</div><div class="menu-card-desc">Tomato, cheese, ham, hot salami and onion</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Sweet Chilli Chicken pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Sweet Chilli Chicken</div><div class="menu-card-desc">Sweet chilli sauce, cheese, chicken, capsicum, pineapple and bacon</div><div class="menu-card-price">$11 / $15.50 / $20</div></div></div>
     </div>
-  </section>
+  </div>
 
-  <!-- Card 3: Pasta -->
-  <section class="card green">
-    <div class="card-head">
-      <div class="card-emoji">🍝</div>
-      <div>
-        <div class="card-title">Pasta</div>
-        <div class="card-note">Hearty Italian classics</div>
-      </div>
+  <!-- GOURMET PIZZA -->
+  <div id="tab-gourmet" class="menu-section">
+    <div class="sec-head"><h2>Gourmet <em>Pizza</em></h2><div class="price-pills"><span>Large Only $21</span></div></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="The Toorak pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">The Toorak</div><div class="menu-card-desc">Tomato, cheese, smoked salmon, fetta, cherry tomato, capsicum, sour cream and garlic</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=70&auto=format&fit=crop" alt="Lamb pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Lamb</div><div class="menu-card-desc">Tomato, cheese, roast lamb, cherry tomato, onion and garlic</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Gourmet Vegetarian pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Gourmet Vegetarian <span class="item-tag">Veg</span></div><div class="menu-card-desc">Tomato, cheese, roast pumpkin, capsicum, mushroom, cherry tomato, fetta, olives, basil and garlic</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="The Burger pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">The Burger</div><div class="menu-card-desc">Tomato, cheese, beef, onion, pickles, cherry tomato, bacon, mayo and English mustard</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="The Caesar pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">The Caesar</div><div class="menu-card-desc">Tomato, cheese, chicken, onion, bacon, cherry tomato, Caesar dressing and parmesan cheese</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=70&auto=format&fit=crop" alt="The Taco pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">The Taco</div><div class="menu-card-desc">Tomato, cheese, spicy salsa, beef, onion, jalapenos, cherry tomato and sour cream</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Parmesan Bruschetta pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Parmesan Bruschetta</div><div class="menu-card-desc">Garlic, cheese, cherry tomato, onion, parmesan cheese and basil</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Spaghetti pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Spaghetti Pizza</div><div class="menu-card-desc">Tomato, cheese, spaghetti and bolognese sauce</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="Tandoori Chicken pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Tandoori Chicken</div><div class="menu-card-desc">Tandoori sauce, cheese, chicken, topped with yoghurt and spring onion</div><div class="menu-card-price">$21</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=70&auto=format&fit=crop" alt="BBQ Beef pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">BBQ Beef</div><div class="menu-card-desc">BBQ sauce, cheese, beef, bacon and onion</div><div class="menu-card-price">$21</div></div></div>
     </div>
-    <div class="card-body">
-      <div class="item"><div class="item-main"><div class="item-name">Bolognese</div><div class="item-desc">Rich beef bolognese sauce.</div></div><div class="item-price">$18.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Carbonara</div><div class="item-desc">Bacon, cream, garlic and parmesan.</div></div><div class="item-price">$18.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Napoli</div><div class="item-desc">Napoli sauce with garlic and herbs.</div></div><div class="item-price">$16.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Chicken Pesto</div><div class="item-desc">Chicken, pesto cream sauce.</div></div><div class="item-price">$19.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Seafood Marinara</div><div class="item-desc">Prawns, mussels, calamari in a rich marinara sauce.</div></div><div class="item-price">$21.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Vegetarian Pasta <span class="veg">V</span></div><div class="item-desc">Olives, capsicum, mushroom, onion, cherry tomato.</div></div><div class="item-price">$17.90</div></div>
-    </div>
-  </section>
+  </div>
 
-  <!-- Card 4: Sides & Drinks -->
-  <section class="card dark">
-    <div class="card-head">
-      <div class="card-emoji">🥤</div>
-      <div>
-        <div class="card-title">Sides &amp; Drinks</div>
-        <div class="card-note">Add to any meal</div>
-      </div>
+  <!-- PASTAS -->
+  <div id="tab-pasta" class="menu-section">
+    <div class="sec-head"><h2>Pastas</h2></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Bolognese pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Bolognese</div><div class="menu-card-desc">Rich beef bolognese sauce</div><div class="menu-card-price">$18.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Carbonara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Carbonara</div><div class="menu-card-desc">Bacon, cream, garlic and parmesan</div><div class="menu-card-price">$18.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Napoli pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Napoli <span class="item-tag">Veg</span></div><div class="menu-card-desc">Napoli sauce with garlic and herbs</div><div class="menu-card-price">$16.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Chicken Pesto pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chicken Pesto</div><div class="menu-card-desc">Chicken in a pesto cream sauce</div><div class="menu-card-price">$19.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Seafood Marinara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Seafood Marinara</div><div class="menu-card-desc">Prawns, mussels and calamari in a rich marinara sauce</div><div class="menu-card-price">$21.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Vegetarian pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Vegetarian Pasta <span class="item-tag">Veg</span></div><div class="menu-card-desc">Olives, capsicum, mushroom, onion and cherry tomato</div><div class="menu-card-price">$17.90</div></div></div>
     </div>
-    <div class="card-body">
-      <div class="item"><div class="item-main"><div class="item-name">Garlic Bread</div></div><div class="item-price">$6.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Cheesy Garlic Bread</div></div><div class="item-price">$8.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Crispy Wedges</div><div class="item-desc">Served with sweet chilli sauce.</div></div><div class="item-price">$8.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Garden Salad <span class="veg">V</span></div><div class="item-desc">Lettuce, tomato, cucumber, onion, carrot.</div></div><div class="item-price">$7.90</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Soft Drink Cans</div></div><div class="item-price">$3.50</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">1.25L Soft Drink</div></div><div class="item-price">$5.50</div></div>
-      <div class="item"><div class="item-main"><div class="item-name">Water</div></div><div class="item-price">$2.50</div></div>
+    <div class="note-box">Carried over from the previous site — send your real pasta list/prices and I'll update it.</div>
+  </div>
+
+  <!-- MAINS -->
+  <div id="tab-mains" class="menu-section">
+    <div class="sec-head"><h2>Mains</h2><div class="price-pills"><span>Served with salad &amp; chips</span></div></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=70&auto=format&fit=crop" alt="Classic Chicken Schnitzel" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Classic Chicken Schnitzel</div><div class="menu-card-desc">Crumbed chicken breast served with salad and chips</div><div class="menu-card-price">$20</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&q=70&auto=format&fit=crop" alt="Classic Chicken Parmigiana" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Classic Chicken Parmigiana</div><div class="menu-card-desc">Chicken breast, homemade Napoli sauce and mozzarella cheese, served with salad and chips</div><div class="menu-card-price">$24</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=70&auto=format&fit=crop" alt="Mexican Chicken Parmigiana" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Mexican Chicken Parmigiana</div><div class="menu-card-desc">Chicken breast, cheese, jalapeno and Napoli sauce, served with salad and chips</div><div class="menu-card-price">$24</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&q=70&auto=format&fit=crop" alt="Hawaiian Chicken Parmigiana" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Hawaiian Chicken Parmigiana</div><div class="menu-card-desc">Chicken breast, ham, pineapple, Napoli sauce and cheese, served with chips and salad</div><div class="menu-card-price">$24</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=70&auto=format&fit=crop" alt="Aussie Chicken Parmigiana" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Aussie Chicken Parmigiana</div><div class="menu-card-desc">Chicken breast, ham, bacon and egg, and cheese, served with salad and chips</div><div class="menu-card-price">$24</div></div></div>
     </div>
-  </section>
+  </div>
 
-</main>
+  <!-- OTHER DEALS -->
+  <div id="tab-deals" class="menu-section">
+    <div class="sec-head"><h2>Other <em>Deals</em></h2></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Lunch Deal Pizza and Coke" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Lunch Deal — Pizza + Coke</div><div class="menu-card-desc">Margherita, Hawaiian, Aussie, Capricciosa or Garlic with a Coke. 12PM–4PM, Thursday to Saturday.</div><div class="menu-card-price">$9.90</div></div></div>
+    </div>
+    <div class="note-box">Add your other deals here — send the details (name, what's included, price) and I'll list them.</div>
+  </div>
 
-<div class="legend">
-  <div><span class="veg">V</span> Vegetarian</div>
-  <div><strong>Delivery Service Available</strong></div>
+  <!-- SIDES -->
+  <div id="tab-sides" class="menu-section">
+    <div class="sec-head"><h2>Sides</h2></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=70&auto=format&fit=crop" alt="Garlic bread" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Garlic Bread</div><div class="menu-card-price">$4</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=70&auto=format&fit=crop" alt="Chicken nuggets" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chicken Nuggets</div><div class="menu-card-price">6 for $6</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Arancini bolognese" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Arancini Bolognese</div><div class="menu-card-price">5 for $8.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Arancini four cheese" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Arancini Four Cheese <span class="item-tag">Veg</span></div><div class="menu-card-price">5 for $8.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1639024471283-03518883512d?w=500&q=70&auto=format&fit=crop" alt="Onion rings" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Onion Rings <span class="item-tag">Veg</span></div><div class="menu-card-price">10 for $8.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Wedges" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Wedges</div><div class="menu-card-price">$10</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Chips" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chips</div><div class="menu-card-price">S $4.50 · L $7</div></div></div>
+    </div>
+  </div>
+
+  <!-- COOL DRINKS -->
+  <div id="tab-drinks" class="menu-section">
+    <div class="sec-head"><h2>Cool <em>Drinks</em></h2></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Soft drink can" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Soft Drink Cans</div><div class="menu-card-price">$3.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="1.25L soft drink" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">1.25L Soft Drink</div><div class="menu-card-price">$5.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Water" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Water</div><div class="menu-card-price">$2.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Juice pop top" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Juice (Pop Top)</div><div class="menu-card-price">$3.50</div></div></div>
+    </div>
+    <div class="note-box">Carried over from the previous site — send your cool drinks list (flavours / sizes / prices) and I'll update it.</div>
+  </div>
+
+  <div class="fineprint">
+    Pizza prices shown as Small / Large / Family. Gluten free bases available on traditional pizzas (Large $19). Please inform us of any dietary requirements or allergies. Home delivery charge will apply. Prices may change without notice.
+  </div>
+</div>
+
+<!-- PRICE MODAL -->
+<div class="modal-overlay" id="priceModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <img class="modal-img" id="modalImg" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-name" id="modalName"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-prices" id="modalPrices"></div>
+    </div>
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="brand">Mt Evelyn <b>Pizza</b> &amp; <i>Pasta</i></div>
+  <div class="foot-brand">Mt Evelyn <b>Pizza</b> &amp; <i>Pasta</i></div>
   <p>11A York Road, Mt Evelyn VIC 3796 · <a href="tel:0397363855">(03) 9736 3855</a></p>
   <p>© 2026 Mt Evelyn Pizza &amp; Pasta · <a href="index.html">Back to Home</a></p>
 </footer>
 
-</body></html>
+<script>
+  function showTab(tab, btn) {
+    document.querySelectorAll('.menu-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const el = document.getElementById('tab-' + tab);
+    if (el) el.classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // price modal: click a card to see sizes / prices
+  (function () {
+    const overlay = document.getElementById('priceModal');
+    const mImg = document.getElementById('modalImg');
+    const mName = document.getElementById('modalName');
+    const mDesc = document.getElementById('modalDesc');
+    const mPrices = document.getElementById('modalPrices');
+
+    function rowsFor(card) {
+      const sec = card.closest('.menu-section').id;
+      if (sec === 'tab-traditional') {
+        return [['Small', '$11'], ['Large', '$15.50'], ['Family', '$20'], ['Gluten Free · Large', '$19', true]];
+      }
+      if (sec === 'tab-gourmet') {
+        return [['Large', '$21']];
+      }
+      const p = card.querySelector('.menu-card-price');
+      return [['Price', p ? p.textContent.trim() : '']];
+    }
+
+    function open(card) {
+      const img = card.querySelector('.menu-card-img');
+      const nameEl = card.querySelector('.menu-card-name');
+      const descEl = card.querySelector('.menu-card-desc');
+      mImg.src = img ? img.src : '';
+      mImg.alt = nameEl ? nameEl.textContent.trim() : '';
+      mName.textContent = nameEl ? nameEl.childNodes[0].textContent.trim() : '';
+      mDesc.textContent = descEl ? descEl.textContent.trim() : '';
+      mDesc.style.display = descEl ? 'block' : 'none';
+      mPrices.innerHTML = rowsFor(card).map(r =>
+        '<div class="row"><span class="modal-size' + (r[2] ? ' gf' : '') + '">' + r[0] + '</span><span class="modal-amt">' + r[1] + '</span></div>'
+      ).join('');
+      overlay.classList.add('open');
+    }
+    function close() { overlay.classList.remove('open'); }
+
+    document.querySelectorAll('.menu-card').forEach(c => c.addEventListener('click', () => open(c)));
+    document.getElementById('modalClose').addEventListener('click', close);
+    overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
+</script>
+</body>
+</html>
