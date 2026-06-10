@@ -225,33 +225,94 @@
   @keyframes fadeIn { from{opacity:0} to{opacity:1} }
 
   /* —— HERO CAROUSEL —— */
+  /* offers grid: big feature left, promo tiles right (Domino's-style) */
+  .offers-grid {
+    display: grid; grid-template-columns: 1.6fr 1fr; gap: 18px;
+    width: 100%; max-width: 1200px; margin: 0 auto; text-align: left;
+  }
+  .feature { position: relative; }
   .hero-carousel {
-    position: relative; display: grid; width: 100%; max-width: 1000px; margin: 0 auto;
+    position: relative; display: grid; width: 100%; margin: 0 auto;
   }
   .hero-slide {
     grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(18px);
     transition: opacity .6s ease, transform .6s ease, visibility .6s; pointer-events: none;
   }
   .hero-slide.active { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+
+  /* feature banner (left) */
+  .feat-slide {
+    min-height: 480px; border-radius: 12px; padding: 46px; overflow: hidden; position: relative;
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 6px;
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, rgba(206,49,39,0.18), rgba(20,18,16,0.88));
+  }
+  .feat-slide.t-green { border-color: var(--green); background: linear-gradient(135deg, rgba(91,160,62,0.20), rgba(20,18,16,0.88)); }
+  .feat-slide.t-gold  { border-color: var(--gold);  background: linear-gradient(135deg, rgba(236,169,44,0.18), rgba(20,18,16,0.88)); }
+  /* image poster slides */
+  .feat-slide.feat-img { padding: 0; border: 1px solid var(--line); background: #100e0b; min-height: 0; display: block; }
+  .feat-img img { display: block; width: 100%; height: 560px; object-fit: contain; border-radius: 12px; }
+  .ghost {
+    position: absolute; right: -8px; top: -34px; font-family: var(--f-display);
+    font-size: 210px; line-height: 1; color: rgba(245,237,221,0.045); pointer-events: none; letter-spacing: 0.02em;
+  }
+  .feat-flag {
+    position: absolute; top: 20px; left: 20px; z-index: 3;
+    font-family: var(--f-head); font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #fff; background: var(--red); padding: 6px 14px; border-radius: 3px;
+  }
+  .feat-kicker { position: relative; z-index: 2; font-family: var(--f-head); font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-size: 14px; }
+  .feat-title { position: relative; z-index: 2; font-family: var(--f-display); font-size: clamp(40px, 6vw, 72px); line-height: .9; text-transform: uppercase; color: var(--cream); }
+  .feat-price { position: relative; z-index: 2; font-family: var(--f-display); font-size: clamp(48px, 7vw, 84px); line-height: .9; color: var(--gold); text-shadow: 0 6px 24px rgba(236,169,44,0.25); }
+  .feat-slide.t-green .feat-price { color: var(--green); }
+  .feat-sub { position: relative; z-index: 2; font-family: var(--f-body); color: var(--cream-dim); font-size: 16px; margin-bottom: 10px; }
+  .feat-slide .btn-primary { position: relative; z-index: 2; align-self: flex-start; margin-top: 6px; }
+
+  /* promo tiles (right) */
+  .promo-col { display: grid; grid-template-rows: 1fr 1fr; gap: 18px; }
+  .promo-tile {
+    position: relative; overflow: hidden; border-radius: 12px; padding: 30px;
+    display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; min-height: 231px;
+    border: 1px solid var(--line); text-decoration: none;
+    background: linear-gradient(135deg, rgba(20,18,16,0.7), rgba(206,49,39,0.08));
+    transition: transform .25s, border-color .25s;
+  }
+  .promo-tile.t-green { background: linear-gradient(135deg, rgba(20,18,16,0.7), rgba(91,160,62,0.10)); }
+  .promo-tile:hover { transform: translateY(-4px); border-color: var(--gold); }
+  .promo-tile .ghost { font-size: 120px; top: -18px; }
+  .promo-kicker { position: relative; z-index: 2; font-family: var(--f-head); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green); font-size: 12px; }
+  .promo-title { position: relative; z-index: 2; font-family: var(--f-display); font-size: clamp(28px, 3.4vw, 42px); text-transform: uppercase; color: var(--cream); line-height: .95; }
+  .promo-price { position: relative; z-index: 2; font-family: var(--f-display); font-size: 28px; color: var(--gold); letter-spacing: 0.02em; }
+  .promo-link { position: relative; z-index: 2; font-family: var(--f-head); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-size: 13px; margin-top: 10px; }
+  .promo-tile:hover .promo-link { color: #f7bc44; }
+
   .car-arrow {
     position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
-    width: 46px; height: 46px; border-radius: 50%; cursor: pointer;
-    background: rgba(245,237,221,0.05); border: 1px solid var(--line); color: var(--cream);
+    width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+    background: rgba(12,11,10,0.55); border: 1px solid var(--line); color: var(--cream);
     font-family: var(--f-head); font-size: 26px; line-height: 1; display: flex; align-items: center; justify-content: center;
-    transition: background .2s, border-color .2s, transform .15s;
+    backdrop-filter: blur(4px); transition: background .2s, border-color .2s, transform .15s;
   }
-  .car-arrow:hover { background: rgba(206,49,39,0.18); border-color: var(--red); }
-  .car-arrow.prev { left: -8px; } .car-arrow.next { right: -8px; }
-  .hero-dots { display: flex; gap: 11px; justify-content: center; margin-top: 30px; animation: fadeIn 1s .5s both; }
+  .car-arrow:hover { background: rgba(206,49,39,0.7); border-color: var(--red); }
+  .car-arrow.prev { left: 14px; } .car-arrow.next { right: 14px; }
+  .hero-dots { display: flex; gap: 11px; justify-content: center; margin-top: 22px; animation: fadeIn 1s .5s both; }
   .dot-nav {
     width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; padding: 0;
     background: var(--cream-faint); transition: background .25s, transform .25s;
   }
   .dot-nav:hover { background: var(--cream-dim); }
   .dot-nav.active { background: var(--gold); transform: scale(1.3); }
+  @media (max-width: 920px) {
+    .offers-grid { grid-template-columns: 1fr; }
+    .promo-col { grid-template-rows: auto auto; }
+    .feat-slide { min-height: 360px; padding: 34px; }
+    .feat-slide.feat-img { min-height: 0; padding: 0; }
+    .feat-img img { height: auto; max-height: 80vh; }
+    .promo-tile { min-height: 180px; }
+  }
   @media (max-width: 700px) {
     .car-arrow { width: 38px; height: 38px; font-size: 22px; }
-    .car-arrow.prev { left: 2px; } .car-arrow.next { right: 2px; }
+    .car-arrow.prev { left: 8px; } .car-arrow.next { right: 8px; }
   }
 
   /* —— INFO STRIP —— */
@@ -480,7 +541,7 @@
   <div class="nav-logo">Mt Evelyn <b>Pizza</b> &amp; <i>Pasta</i></div>
   <ul class="nav-links">
     <li><a href="#deal">Lunch Deal</a></li>
-    <li><a href="#menu">Menu</a></li>
+    <li><a href="menu.html">Menu</a></li>
     <li><a href="#hours">Hours</a></li>
     <li><a href="#bar">Bar</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -490,63 +551,55 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <svg class="mtn" viewBox="0 0 220 56" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M0 56 L34 14 L52 30 L78 4 L100 34 L120 12 L138 30 L162 8 L182 32 L206 16 L220 56 Z"></path>
-  </svg>
+  <div class="offers-grid">
 
-  <div class="brand">Mt Evelyn</div>
-  <div class="brand-sub"><span class="r">Pizza</span><span class="amp">&amp;</span><span class="g">Pasta</span></div>
+    <!-- LEFT: big rotating feature banner -->
+    <div class="feature">
+      <div class="hero-carousel" id="heroCarousel">
+        <!-- Feature 1: Lunch Deal poster -->
+        <a class="hero-slide feat-slide feat-img active" href="#deal">
+          <img src="images/banner-1.jpg" alt="Mt Evelyn Pizza & Pasta — $9.99 Lunch Deal, Pizza + Coke, 12PM–4PM">
+        </a>
 
-  <div class="hero-carousel" id="heroCarousel">
-    <!-- Banner 1: Lunch -->
-    <div class="hero-slide active">
-      <div class="hero-eyebrow"><span class="brush">Under New Management</span></div>
-      <h1>We Are<em>Open For Lunch</em></h1>
-      <p class="hero-tag">Great Food, <span>Great Times!</span></p>
-      <div class="hero-ctas">
-        <a href="#deal" class="btn-primary">$9.90 Lunch Deal</a>
-        <a href="#menu" class="btn-ghost">View Full Menu</a>
+        <!-- Feature 2: Bar poster -->
+        <a class="hero-slide feat-slide feat-img" href="#bar">
+          <img src="images/banner-2.jpg" alt="Bar will be open Thursday, Friday & Saturday, 12PM–8PM" loading="lazy">
+        </a>
+
+        <!-- Feature 3: Open for lunch poster -->
+        <a class="hero-slide feat-slide feat-img" href="#hours">
+          <img src="images/banner-3.jpg" alt="Mt Evelyn Pizza & Pasta — Open for lunch, new trading hours" loading="lazy">
+        </a>
+
+        <button class="car-arrow prev" id="heroPrev" aria-label="Previous banner">‹</button>
+        <button class="car-arrow next" id="heroNext" aria-label="Next banner">›</button>
+      </div>
+
+      <div class="hero-dots" id="heroDots">
+        <button class="dot-nav active" aria-label="Banner 1"></button>
+        <button class="dot-nav" aria-label="Banner 2"></button>
+        <button class="dot-nav" aria-label="Banner 3"></button>
       </div>
     </div>
 
-    <!-- Banner 2: Deal -->
-    <div class="hero-slide">
-      <div class="hero-eyebrow"><span class="brush gold">Lunch Deal · 12PM – 4PM</span></div>
-      <h1>Pizza + Coke<em>Just $9.90</em></h1>
-      <p class="hero-tag">Thursday to Saturday, <span>12PM – 4PM</span></p>
-      <div class="hero-ctas">
-        <a href="#deal" class="btn-primary">Grab The Deal</a>
-        <a href="#menu" class="btn-ghost">See The Menu</a>
-      </div>
+    <!-- RIGHT: stacked promo tiles -->
+    <div class="promo-col">
+      <a class="promo-tile" href="menu.html">
+        <span class="ghost">$20</span>
+        <div class="promo-kicker">Family Size</div>
+        <div class="promo-title">Family Pizza</div>
+        <div class="promo-price">From $20.00</div>
+        <span class="promo-link">See Pizzas →</span>
+      </a>
+      <a class="promo-tile t-green" href="menu.html">
+        <span class="ghost">PASTA</span>
+        <div class="promo-kicker">Hearty &amp; Fresh</div>
+        <div class="promo-title">Pasta Classics</div>
+        <div class="promo-price">From $16.90</div>
+        <span class="promo-link">See Pasta →</span>
+      </a>
     </div>
 
-    <!-- Banner 3: Bar -->
-    <div class="hero-slide">
-      <div class="hero-eyebrow"><span class="brush green">Now Pouring · Thu–Sat</span></div>
-      <h1>The Bar Is<em>Now Open</em></h1>
-      <p class="hero-tag">Good Drinks, <span>Good Times.</span></p>
-      <div class="hero-ctas">
-        <a href="#bar" class="btn-primary">Bar Hours</a>
-        <a href="tel:0397363855" class="btn-ghost">Call (03) 9736 3855</a>
-      </div>
-    </div>
-
-    <button class="car-arrow prev" id="heroPrev" aria-label="Previous banner">‹</button>
-    <button class="car-arrow next" id="heroNext" aria-label="Next banner">›</button>
-  </div>
-
-  <div class="hero-dots" id="heroDots">
-    <button class="dot-nav active" aria-label="Banner 1"></button>
-    <button class="dot-nav" aria-label="Banner 2"></button>
-    <button class="dot-nav" aria-label="Banner 3"></button>
-  </div>
-
-  <div class="hero-badges">
-    <div class="badge">Dine In</div>
-    <div class="badge">Takeaway</div>
-    <div class="badge">Delivery</div>
-    <div class="badge">Bar Open Thu–Sat</div>
-    <div class="badge">Open 6 Days</div>
   </div>
 
   <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
@@ -598,89 +651,16 @@
   </div>
 </section>
 
-<!-- MENU -->
+<!-- MENU CTA -->
 <section id="menu">
-  <div class="menu-header reveal visible">
+  <div class="menu-header reveal visible" style="text-align:center;">
     <div class="section-tag"><span class="brush green">Our Menu</span></div>
     <h2 class="section-title">Crafted <em>Fresh</em><br>Every Day</h2>
-    <div class="section-divider"></div>
-  </div>
-
-  <div class="menu-tabs reveal visible">
-    <button class="tab-btn active" data-tab="pizza">Pizza</button>
-    <button class="tab-btn" data-tab="gourmet">Gourmet Pizza</button>
-    <button class="tab-btn" data-tab="pasta">Pasta</button>
-    <button class="tab-btn" data-tab="sides">Sides</button>
-    <button class="tab-btn" data-tab="drinks">Drinks</button>
-  </div>
-
-  <!-- PIZZA -->
-  <div class="menu-panel active" id="tab-pizza">
-    <div class="price-header reveal visible">
-      <span><strong>Small</strong> &nbsp;$11.00</span>
-      <span><strong>Large</strong> &nbsp;$15.50</span>
-      <span><strong>Family</strong> &nbsp;$20.00</span>
-    </div>
-    <div class="items-grid reveal visible">
-      <div class="menu-item"><div class="item-name">Margherita <span class="veg">V</span></div><div class="item-desc">Tomato, cheese and oregano.</div></div>
-      <div class="menu-item"><div class="item-name">Hawaiian</div><div class="item-desc">Ham, pineapple and cheese.</div></div>
-      <div class="menu-item"><div class="item-name">Aussie</div><div class="item-desc">Ham, bacon and egg.</div></div>
-      <div class="menu-item"><div class="item-name">Capricciosa</div><div class="item-desc">Ham, mushroom, olives, capsicum and cheese.</div></div>
-      <div class="menu-item"><div class="item-name">Garlic <span class="veg">V</span></div><div class="item-desc">Garlic, cheese and herbs.</div></div>
-      <div class="menu-item"><div class="item-name">Meat Lovers</div><div class="item-desc">Ham, bacon, salami, beef and BBQ sauce.</div></div>
-      <div class="menu-item"><div class="item-name">BBQ Chicken</div><div class="item-desc">Chicken, bacon, onion, cheese and BBQ sauce.</div></div>
-      <div class="menu-item"><div class="item-name">Pepperoni</div><div class="item-desc">Pepperoni, cheese and tomato sauce.</div></div>
-      <div class="menu-item"><div class="item-name">Vegetarian <span class="veg">V</span></div><div class="item-desc">Mushroom, capsicum, onion, olives and tomato.</div></div>
-      <div class="menu-item"><div class="item-name">Supreme</div><div class="item-desc">Ham, salami, capsicum, onion, mushroom, olives.</div></div>
-    </div>
-  </div>
-
-  <!-- GOURMET -->
-  <div class="menu-panel" id="tab-gourmet">
-    <div class="price-header reveal"><span class="note">Premium hand-finished gourmet pizzas</span></div>
-    <div class="items-grid reveal">
-      <div class="menu-item"><div class="item-name">Lamb &amp; Rocket</div><div class="item-desc">Lamb, caramelised onion, rocket, tzatziki drizzle.</div></div>
-      <div class="menu-item"><div class="item-name">Truffle Mushroom <span class="veg">V</span></div><div class="item-desc">Mushroom, spinach, truffle oil, parmesan.</div></div>
-      <div class="menu-item"><div class="item-name">Smoked Salmon</div><div class="item-desc">Smoked salmon, capers, red onion, cream cheese.</div></div>
-    </div>
-  </div>
-
-  <!-- PASTA -->
-  <div class="menu-panel" id="tab-pasta">
-    <div class="items-grid reveal">
-      <div class="menu-item"><div class="item-name">Bolognese <span class="price">$18.90</span></div><div class="item-desc">Rich beef bolognese sauce.</div></div>
-      <div class="menu-item"><div class="item-name">Carbonara <span class="price">$18.90</span></div><div class="item-desc">Bacon, cream, garlic and parmesan.</div></div>
-      <div class="menu-item"><div class="item-name">Napoli <span class="price">$16.90</span></div><div class="item-desc">Napoli sauce with garlic and herbs.</div></div>
-      <div class="menu-item"><div class="item-name">Chicken Pesto <span class="price">$19.90</span></div><div class="item-desc">Chicken, pesto cream sauce.</div></div>
-      <div class="menu-item"><div class="item-name">Seafood Marinara <span class="price">$21.90</span></div><div class="item-desc">Prawns, mussels, calamari in a rich marinara sauce.</div></div>
-      <div class="menu-item"><div class="item-name">Vegetarian Pasta <span class="veg">V</span> <span class="price">$17.90</span></div><div class="item-desc">Olives, capsicum, mushroom, onion, cherry tomato.</div></div>
-    </div>
-  </div>
-
-  <!-- SIDES -->
-  <div class="menu-panel" id="tab-sides">
-    <div class="items-grid reveal">
-      <div class="menu-item"><div class="item-name">Garlic Bread <span class="price">$6.90</span></div></div>
-      <div class="menu-item"><div class="item-name">Cheesy Garlic Bread <span class="price">$8.90</span></div></div>
-      <div class="menu-item"><div class="item-name">Crispy Wedges <span class="price">$8.90</span></div><div class="item-desc">Served with sweet chilli sauce.</div></div>
-      <div class="menu-item"><div class="item-name">Garden Salad <span class="veg">V</span> <span class="price">$7.90</span></div><div class="item-desc">Lettuce, tomato, cucumber, onion, carrot.</div></div>
-    </div>
-  </div>
-
-  <!-- DRINKS -->
-  <div class="menu-panel" id="tab-drinks">
-    <div class="items-grid reveal">
-      <div class="menu-item"><div class="item-name">Soft Drink Cans <span class="price">$3.50</span></div></div>
-      <div class="menu-item"><div class="item-name">1.25L Soft Drink <span class="price">$5.50</span></div></div>
-      <div class="menu-item"><div class="item-name">Water <span class="price">$2.50</span></div></div>
-      <div class="menu-item"><div class="item-name">Juice (Pop Top) <span class="price">$3.50</span></div></div>
-    </div>
-  </div>
-
-  <div class="legend reveal visible">
-    <div><span class="veg">V</span> Vegetarian</div>
-    <div><span class="spicy">🌶</span> Spicy</div>
-    <div style="color:var(--green);"><strong>Delivery Service Available</strong></div>
+    <div class="section-divider" style="margin-left:auto;margin-right:auto;"></div>
+    <p style="font-family:var(--f-body);color:var(--cream-dim);max-width:560px;margin:0 auto 30px;line-height:1.7;">
+      Wood-style pizzas, hearty pasta, sides &amp; drinks — explore the full menu with prices.
+    </p>
+    <a href="menu.html" class="btn-primary">View Full Menu</a>
   </div>
 </section>
 
