@@ -34,7 +34,7 @@
 
   /* —— NAV —— */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(8,7,6,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
-  .nav-logo { font-family: var(--f-display); font-size: 22px; letter-spacing: 0.04em; line-height: 1; color: var(--cream); text-transform: uppercase; text-decoration: none; }
+  .nav-logo { font-family: var(--f-display); font-size: 22px; letter-spacing: 0.04em; line-height: 1; color: var(--cream); text-transform: none; text-decoration: none; }
   .nav-logo b { color: var(--red); font-weight: 400; } .nav-logo i { color: var(--green); font-style: normal; }
   .nav-links { display: flex; gap: 30px; list-style: none; }
   .nav-links a { font-family: var(--f-head); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: var(--cream-dim); text-decoration: none; text-transform: uppercase; transition: color .2s; position: relative; }
@@ -148,7 +148,7 @@
   <div class="lunch-banner">
     <div class="lunch-banner-text">
       <h3>The Lunch Deal</h3>
-      <p>Any one of Margherita, Hawaiian, Aussie, Capricciosa or Garlic, plus a Coke. Available 12PM–4PM, Thursday to Saturday.</p>
+      <p>Any one of Margherita, Hawaiian, Aussie, Capricciosa or Garlic, plus a Coke. Available 12PM–9PM, Thursday to Saturday.</p>
     </div>
     <div class="lunch-banner-price">$9.90<span>Pizza + Coke</span></div>
   </div>
@@ -212,17 +212,17 @@
 
   <!-- PASTAS -->
   <div id="tab-pasta" class="menu-section">
-    <div class="sec-head"><h2>Pastas</h2></div>
+    <div class="sec-head"><h2>Pastas</h2><div class="price-pills"><span>Spaghetti · Fettuchine · Ravioli</span><span>Small $13</span><span>Large $16</span></div></div>
     <div class="sec-divider"></div>
     <div class="menu-grid">
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Bolognese pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Bolognese</div><div class="menu-card-desc">Rich beef bolognese sauce</div><div class="menu-card-price">$18.90</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Carbonara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Carbonara</div><div class="menu-card-desc">Bacon, cream, garlic and parmesan</div><div class="menu-card-price">$18.90</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Napoli pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Napoli <span class="item-tag">Veg</span></div><div class="menu-card-desc">Napoli sauce with garlic and herbs</div><div class="menu-card-price">$16.90</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Chicken Pesto pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chicken Pesto</div><div class="menu-card-desc">Chicken in a pesto cream sauce</div><div class="menu-card-price">$19.90</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Seafood Marinara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Seafood Marinara</div><div class="menu-card-desc">Prawns, mussels and calamari in a rich marinara sauce</div><div class="menu-card-price">$21.90</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Vegetarian pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Vegetarian Pasta <span class="item-tag">Veg</span></div><div class="menu-card-desc">Olives, capsicum, mushroom, onion and cherry tomato</div><div class="menu-card-price">$17.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Bolognese pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Bolognese</div><div class="menu-card-desc">Home made rich beef bolognese sauce</div><div class="menu-card-price">$13 / $16</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Carbonara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Carbonara</div><div class="menu-card-desc">Garlic, bacon, spring onion, cream, cheese and egg</div><div class="menu-card-price">$13 / $16</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Creamy Chicken Mushroom pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Creamy Chicken Mushroom</div><div class="menu-card-desc">Chicken, mushroom, garlic, onion, cream and parmesan cheese</div><div class="menu-card-price">$13 / $16</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Big Vegetarian pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Big Vegetarian <span class="item-tag">Veg</span></div><div class="menu-card-desc">Garlic, onion, mushroom, olives, Napoli sauce, capsicum and parmesan cheese</div><div class="menu-card-price">$13 / $16</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Marinara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Marinara</div><div class="menu-card-desc">Mixed seafood, garlic and Napoli sauce</div><div class="menu-card-price">$13 / $16</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Allapanna pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Allapanna</div><div class="menu-card-desc">Garlic, bacon, mushroom, spring onion, cream and parmesan cheese</div><div class="menu-card-price">$13 / $16</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Lasagna pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Lasagna</div><div class="menu-card-desc">Cheese, layers of pasta, homemade beef bolognese sauce</div><div class="menu-card-price">$13 / $16</div></div></div>
     </div>
-    <div class="note-box">Carried over from the previous site — send your real pasta list/prices and I'll update it.</div>
   </div>
 
   <!-- MAINS -->
@@ -243,9 +243,17 @@
     <div class="sec-head"><h2>Other <em>Deals</em></h2></div>
     <div class="sec-divider"></div>
     <div class="menu-grid">
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Lunch Deal Pizza and Coke" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Lunch Deal — Pizza + Coke</div><div class="menu-card-desc">Margherita, Hawaiian, Aussie, Capricciosa or Garlic with a Coke. 12PM–4PM, Thursday to Saturday.</div><div class="menu-card-price">$9.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Lunch Deal Pizza and Coke" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Lunch Deal — Pizza + Coke</div><div class="menu-card-desc">Margherita, Hawaiian, Aussie, Capricciosa or Garlic with a Coke. 12PM–9PM, Thursday to Saturday.</div><div class="menu-card-price">$9.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="Dinner Deal" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Dinner Deal</div><div class="menu-card-desc">2 Large traditional pizzas, garlic roll and a 1.25L drink</div><div class="menu-card-price">$34.99</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=500&q=70&auto=format&fit=crop" alt="Family Deal" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Family Deal</div><div class="menu-card-desc">2 Family traditional pizzas, garlic roll and a 1.25L drink</div><div class="menu-card-price">$45.99</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=500&q=70&auto=format&fit=crop" alt="Chicken Parma and Chips" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chicken Parma &amp; Chips</div><div class="menu-card-desc">Parmigiana with Napoli sauce, ham and mozzarella. Or your choice: creamy mushroom, Aussie, Hawaiian, Mexican or Tandoori (sauce, cheese, spring onion &amp; yoghurt) toppings.</div><div class="menu-card-price">$18.00</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=70&auto=format&fit=crop" alt="Ribs" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Ribs</div><div class="menu-card-desc">Your choice of BBQ, smokey BBQ, satay or plum sauce. Served with chips.</div><div class="menu-card-price">$20.00</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=70&auto=format&fit=crop" alt="Garlic Roll" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Garlic Roll</div><div class="menu-card-price">$4.00</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513456852971-30c0b8199d4d?w=500&q=70&auto=format&fit=crop" alt="Nachos" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Nachos</div><div class="menu-card-price">$16.00</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=500&q=70&auto=format&fit=crop" alt="Hot Jam Donut" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Hot Jam Donut</div><div class="menu-card-price">$1.50 · 6 for $7</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=500&q=70&auto=format&fit=crop" alt="Chocolate Mousse" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chocolate Mousse</div><div class="menu-card-price">$4.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1567206563064-6f60f40a2b57?w=500&q=70&auto=format&fit=crop" alt="Gelati Ice Cream" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Gelati Ice Cream</div><div class="menu-card-desc">500ml tub — Chocolate, Bacio, Strawberry, Pistachio or Banana</div><div class="menu-card-price">$6.00</div></div></div>
     </div>
-    <div class="note-box">Add your other deals here — send the details (name, what's included, price) and I'll list them.</div>
   </div>
 
   <!-- SIDES -->
@@ -268,16 +276,14 @@
     <div class="sec-head"><h2>Cool <em>Drinks</em></h2></div>
     <div class="sec-divider"></div>
     <div class="menu-grid">
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Soft drink can" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Soft Drink Cans</div><div class="menu-card-price">$3.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="1.25L soft drink" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">1.25L Soft Drink</div><div class="menu-card-price">$5.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Water" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Water</div><div class="menu-card-price">$2.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Juice pop top" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Juice (Pop Top)</div><div class="menu-card-price">$3.50</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Soft drink cans" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Soft Drink Cans</div><div class="menu-card-price">$3.00</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="1.25 litre soft drink bottle" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Soft Drink Bottle 1.25L</div><div class="menu-card-price">$4.00</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1559839914-17aae19cec71?w=500&q=70&auto=format&fit=crop" alt="Water" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Water</div><div class="menu-card-price">$3.00</div></div></div>
     </div>
-    <div class="note-box">Carried over from the previous site — send your cool drinks list (flavours / sizes / prices) and I'll update it.</div>
   </div>
 
   <div class="fineprint">
-    Pizza prices shown as Small / Large / Family. Gluten free bases available on traditional pizzas (Large $19). Please inform us of any dietary requirements or allergies. Home delivery charge will apply. Prices may change without notice.
+    Pizza prices shown as Small / Large / Family. Gluten free bases available on traditional pizzas (Large $19). Alcohol delivery with food only. Please inform us of any dietary requirements or allergies. Home delivery charge will apply. Prices may change without notice.
   </div>
 </div>
 
@@ -325,6 +331,9 @@
       }
       if (sec === 'tab-gourmet') {
         return [['Large', '$21']];
+      }
+      if (sec === 'tab-pasta') {
+        return [['Small', '$13'], ['Large', '$16']];
       }
       const p = card.querySelector('.menu-card-price');
       return [['Price', p ? p.textContent.trim() : '']];
