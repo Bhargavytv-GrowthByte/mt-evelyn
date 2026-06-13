@@ -1,0 +1,113 @@
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0c0b0a;
+    --bg2:       #141210;
+    --panel:     #15130e;
+    --panel-2:   #1b1812;
+    --cream:     #F5EDDD;
+    --cream-dim: rgba(245,237,221,0.58);
+    --cream-faint: rgba(245,237,221,0.28);
+    --red:       #CE3127;
+    --green:     #5BA03E;
+    --gold:      #ECA92C;
+    --line:      rgba(236,169,44,0.16);
+    --f-display: 'Anton', sans-serif;
+    --f-head:    'Oswald', sans-serif;
+    --f-body:    'Barlow', sans-serif;
+    --f-script:  'Pacifico', cursive;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--cream); font-family: var(--f-body); font-weight: 300; -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--red); color: var(--cream); }
+
+  /* —— NAV —— */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(8,7,6,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
+  .nav-logo { font-family: var(--f-display); font-size: 22px; letter-spacing: 0.04em; line-height: 1; color: var(--cream); text-transform: none; text-decoration: none; }
+  .nav-logo b { color: var(--red); font-weight: 400; } .nav-logo i { color: var(--green); font-style: normal; }
+  .nav-links { display: flex; gap: 30px; list-style: none; }
+  .nav-links a { font-family: var(--f-head); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: var(--cream-dim); text-decoration: none; text-transform: uppercase; transition: color .2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0; background: var(--gold); transition: width .25s; }
+  .nav-links a:hover { color: var(--cream); } .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+  .nav-links a.active { color: var(--gold); }
+  .nav-cta { font-family: var(--f-head); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; color: #160d04; background: var(--gold); padding: 10px 22px; text-decoration: none; text-transform: uppercase; border-radius: 2px; transition: background .2s, transform .15s; }
+  .nav-cta:hover { background: #f7bc44; transform: translateY(-1px); }
+
+  /* —— header —— */
+  .page-hero { text-align: center; padding: 130px 32px 26px; position: relative; overflow: hidden; }
+  .page-hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 700px; height: 340px; pointer-events: none; background: radial-gradient(ellipse, rgba(206,49,39,0.18) 0%, rgba(236,169,44,0.05) 45%, transparent 72%); }
+  .page-hero > * { position: relative; z-index: 2; }
+  .page-eyebrow { font-family: var(--f-script); font-size: 22px; color: var(--green); margin-bottom: 10px; }
+  .page-title { font-family: var(--f-display); font-size: clamp(48px, 9vw, 104px); line-height: .9; text-transform: uppercase; color: var(--cream); letter-spacing: 0.01em; }
+  .page-title em { font-style: italic; color: var(--gold); transform: skewX(-7deg); display: inline-block; }
+
+  /* —— lunch banner —— */
+  .lunch-banner { max-width: 1120px; margin: 30px auto 0; padding: 30px 40px; border-radius: 6px; border: 2px solid var(--gold); background: linear-gradient(135deg, rgba(206,49,39,0.12), rgba(20,18,16,0.7)); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .lunch-banner-text h3 { font-family: var(--f-display); font-size: 28px; text-transform: uppercase; color: var(--gold); transform: skewX(-5deg); margin-bottom: 8px; }
+  .lunch-banner-text p { font-family: var(--f-body); font-size: 14px; color: var(--cream-dim); line-height: 1.7; max-width: 54ch; }
+  .lunch-banner-price { font-family: var(--f-display); font-size: 60px; color: var(--cream); white-space: nowrap; line-height: 1; }
+  .lunch-banner-price span { display: block; font-family: var(--f-head); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-top: 4px; }
+
+  /* —— tabs —— */
+  .menu-tabs { display: flex; gap: 0; padding: 46px 0 0; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; }
+  .menu-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn { font-family: var(--f-head); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 14px 24px; background: none; border: none; color: var(--cream-dim); cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color .2s, border-color .2s; }
+  .tab-btn:hover { color: var(--cream); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+  /* —— sections —— */
+  .menu-section { display: none; padding: 50px 32px 20px; max-width: 1120px; margin: 0 auto; }
+  .menu-section.active { display: block; animation: fadeIn .4s both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: none;} }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+  .sec-head h2 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 44px); text-transform: uppercase; color: var(--cream); letter-spacing: 0.01em; }
+  .sec-head h2 em { font-style: italic; color: var(--gold); transform: skewX(-6deg); display: inline-block; }
+  .price-pills { display: inline-flex; flex-wrap: wrap; gap: 8px; }
+  .price-pills span { font-family: var(--f-head); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--line); padding: 6px 12px; border-radius: 3px; }
+  .price-pills span.gf { color: var(--green); border-color: rgba(91,160,62,0.4); }
+  .sec-divider { width: 56px; height: 3px; background: linear-gradient(to right, var(--red), transparent); margin: 14px 0 28px; }
+
+  /* —— image cards —— */
+  .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+  .menu-card { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+  .menu-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 16px 38px rgba(0,0,0,0.4); }
+  .menu-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: var(--panel-2); transition: transform .4s ease; }
+  .menu-card:hover .menu-card-img { transform: scale(1.06); }
+  .menu-card-body { padding: 16px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+  .menu-card-name { font-family: var(--f-head); font-size: 17px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--cream); margin-bottom: 7px; line-height: 1.2; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .menu-card-desc { font-family: var(--f-body); font-size: 13px; color: var(--cream-dim); line-height: 1.55; flex: 1; }
+  .menu-card-price { font-family: var(--f-head); font-size: 15px; font-weight: 600; color: var(--gold); margin-top: 14px; letter-spacing: 0.03em; }
+  .item-tag { font-family: var(--f-head); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; background: var(--green); color: #fff; border-radius: 100px; padding: 3px 9px; vertical-align: middle; }
+
+  .note-box { background: var(--panel); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 4px; padding: 16px 20px; margin-top: 22px; font-family: var(--f-body); font-size: 14px; color: var(--cream-dim); line-height: 1.6; }
+
+  .menu-card { cursor: pointer; }
+
+  /* —— price modal —— */
+  .modal-overlay { position: fixed; inset: 0; z-index: 2000; background: rgba(6,5,4,0.82); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; padding: 24px; }
+  .modal-overlay.open { display: flex; animation: fadeIn .2s both; }
+  .modal { background: var(--panel); border: 1px solid var(--gold); border-radius: 10px; max-width: 440px; width: 100%; overflow: hidden; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.6); }
+  .modal-img { width: 100%; height: 200px; object-fit: cover; display: block; background: var(--panel-2); }
+  .modal-close { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: none; background: rgba(12,11,10,0.75); color: var(--cream); font-size: 22px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s; }
+  .modal-close:hover { background: var(--red); }
+  .modal-body { padding: 24px 26px 28px; }
+  .modal-name { font-family: var(--f-display); font-size: 30px; text-transform: uppercase; color: var(--cream); line-height: 1; }
+  .modal-desc { font-family: var(--f-body); font-size: 14px; color: var(--cream-dim); line-height: 1.6; margin: 10px 0 18px; }
+  .modal-prices { display: flex; flex-direction: column; }
+  .modal-prices .row { display: flex; justify-content: space-between; align-items: center; padding: 13px 0; border-bottom: 1px dashed var(--line); }
+  .modal-prices .row:last-child { border-bottom: none; }
+  .modal-size { font-family: var(--f-head); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream); }
+  .modal-size.gf { color: var(--green); }
+  .modal-amt { font-family: var(--f-display); font-size: 26px; color: var(--gold); }
+
+  /* —— footer —— */
+  footer { background: var(--bg); border-top: 1px solid var(--line); text-align: center; padding: 44px 24px; margin-top: 40px; }
+  footer .foot-brand { font-family: var(--f-display); font-size: 26px; text-transform: uppercase; letter-spacing: 0.03em; }
+  footer .foot-brand b { color: var(--red); font-weight: 400; } footer .foot-brand i { color: var(--green); font-style: normal; }
+  footer p { font-family: var(--f-body); font-size: 13px; color: var(--cream-dim); margin-top: 8px; }
+  footer a { color: var(--gold); text-decoration: none; }
+  .fineprint { text-align: center; padding: 26px 32px 0; color: var(--cream-faint); font-size: 12px; font-family: var(--f-body); max-width: 1120px; margin: 0 auto; }
+
+  @media (max-width: 860px) { nav { padding: 12px 20px; } .nav-links { display: none; } }
+  @media (max-width: 640px) { .menu-section { padding: 40px 18px 10px; } .page-hero { padding: 110px 18px 22px; } .lunch-banner { padding: 24px 22px; } }
