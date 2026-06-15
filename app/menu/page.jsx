@@ -8,6 +8,23 @@ const DESC =
 export const metadata = {
   title: TITLE,
   description: DESC,
+  keywords: [
+    "traditional pizza",
+    "gourmet pizza",
+    "pepperoni pizza",
+    "hawaiian pizza",
+    "meat lovers pizza",
+    "vegetarian pizza",
+    "gluten free pizza",
+    "chicken parmigiana",
+    "chicken schnitzel",
+    "spaghetti bolognese",
+    "carbonara pasta",
+    "lasagna",
+    "garlic bread",
+    "ribs",
+    "pizza lunch deal",
+  ],
   alternates: { canonical: "/menu" },
   openGraph: {
     type: "website",

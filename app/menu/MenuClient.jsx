@@ -11,6 +11,7 @@ const MENU_HTML = `
     <li><a href="/menu" class="active">Menu</a></li>
     <li><a href="/#hours">Hours</a></li>
     <li><a href="/#bar">Bar</a></li>
+    <li><a href="/#catering">Catering</a></li>
     <li><a href="/#contact">Contact</a></li>
   </ul>
   <a href="tel:0397363855" class="nav-cta">Call (03) 9736 3855</a>
@@ -31,22 +32,25 @@ const MENU_HTML = `
     <div class="lunch-banner-price">$9.90<span>Pizza + Coke</span></div>
   </div>
 
+  <div class="note-box" style="max-width:1120px;margin:18px auto 0;">We also do <strong style="color:var(--gold);">catering</strong> — parties, functions &amp; events. Call <a href="tel:0397363855" style="color:var(--gold);">(03) 9736 3855</a> to plan your menu.</div>
+
   <!-- TABS -->
   <div class="menu-tabs">
-    <button class="tab-btn active" onclick="showTab('traditional', this)">Traditional Pizza</button>
-    <button class="tab-btn" onclick="showTab('gourmet', this)">Gourmet Pizza</button>
-    <button class="tab-btn" onclick="showTab('pasta', this)">Pastas</button>
-    <button class="tab-btn" onclick="showTab('mains', this)">Mains</button>
-    <button class="tab-btn" onclick="showTab('deals', this)">Other Deals</button>
-    <button class="tab-btn" onclick="showTab('sides', this)">Sides</button>
-    <button class="tab-btn" onclick="showTab('drinks', this)">Cool Drinks</button>
+    <button class="tab-btn active" data-tab="traditional" onclick="showTab('traditional', this)">Traditional Pizza</button>
+    <button class="tab-btn" data-tab="gourmet" onclick="showTab('gourmet', this)">Gourmet Pizza</button>
+    <button class="tab-btn" data-tab="special" onclick="showTab('special', this)">Special Pizzas</button>
+    <button class="tab-btn" data-tab="pasta" onclick="showTab('pasta', this)">Pastas</button>
+    <button class="tab-btn" data-tab="mains" onclick="showTab('mains', this)">Mains</button>
+    <button class="tab-btn" data-tab="deals" onclick="showTab('deals', this)">Other Deals</button>
+    <button class="tab-btn" data-tab="sides" onclick="showTab('sides', this)">Sides</button>
+    <button class="tab-btn" data-tab="drinks" onclick="showTab('drinks', this)">Cool Drinks</button>
   </div>
 
   <!-- TRADITIONAL PIZZA -->
   <div id="tab-traditional" class="menu-section active">
     <div class="sec-head">
       <h2>Traditional <em>Pizza</em></h2>
-      <div class="price-pills"><span>Small $11</span><span>Large $15.50</span><span>Family $20</span><span class="gf">Gluten Free · Large $19</span><span>+ Extra Toppings $2</span></div>
+      <div class="price-pills"><span>Small $11</span><span>Large $15.50</span><span>Family $20</span><span>+ Extra Toppings $2</span></div>
     </div>
     <div class="sec-divider"></div>
     <div class="menu-grid">
@@ -88,18 +92,28 @@ const MENU_HTML = `
     </div>
   </div>
 
-  <!-- PASTAS -->
-  <div id="tab-pasta" class="menu-section">
-    <div class="sec-head"><h2>Pastas</h2><div class="price-pills"><span>Spaghetti · Fettuchine · Ravioli</span><span>Small $13</span><span>Large $16</span></div></div>
+  <!-- SPECIAL PIZZAS -->
+  <div id="tab-special" class="menu-section">
+    <div class="sec-head"><h2>Special <em>Pizzas</em></h2><div class="price-pills"><span>Single Size $19</span></div></div>
     <div class="sec-divider"></div>
     <div class="menu-grid">
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Bolognese pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Bolognese</div><div class="menu-card-desc">Home made rich beef bolognese sauce</div><div class="menu-card-price">$13 / $16</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Carbonara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Carbonara</div><div class="menu-card-desc">Garlic, bacon, spring onion, cream, cheese and egg</div><div class="menu-card-price">$13 / $16</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Creamy Chicken Mushroom pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Creamy Chicken Mushroom</div><div class="menu-card-desc">Chicken, mushroom, garlic, onion, cream and parmesan cheese</div><div class="menu-card-price">$13 / $16</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Big Vegetarian pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Big Vegetarian <span class="item-tag">Veg</span></div><div class="menu-card-desc">Garlic, onion, mushroom, olives, Napoli sauce, capsicum and parmesan cheese</div><div class="menu-card-price">$13 / $16</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Marinara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Marinara</div><div class="menu-card-desc">Mixed seafood, garlic and Napoli sauce</div><div class="menu-card-price">$13 / $16</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Allapanna pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Allapanna</div><div class="menu-card-desc">Garlic, bacon, mushroom, spring onion, cream and parmesan cheese</div><div class="menu-card-price">$13 / $16</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Lasagna pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Lasagna</div><div class="menu-card-desc">Cheese, layers of pasta, homemade beef bolognese sauce</div><div class="menu-card-price">$13 / $16</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=70&auto=format&fit=crop" alt="Gluten free pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Gluten Free Pizza <span class="item-tag">GF</span></div><div class="menu-card-desc">Any traditional topping on a gluten-free base.</div><div class="menu-card-price">$19</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=500&q=70&auto=format&fit=crop" alt="Nutella dessert pizza" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Nutella Pizza <span class="item-tag">Veg</span></div><div class="menu-card-desc">Warm dessert pizza topped with Nutella.</div><div class="menu-card-price">$19</div></div></div>
+    </div>
+  </div>
+
+  <!-- PASTAS -->
+  <div id="tab-pasta" class="menu-section">
+    <div class="sec-head"><h2>Pastas</h2><div class="price-pills"><span>Spaghetti · Fettuchine · Ravioli</span><span>Small $14.99</span><span>Large $18.99</span><span>Marinara $21.90</span></div></div>
+    <div class="sec-divider"></div>
+    <div class="menu-grid">
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Bolognese pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Bolognese</div><div class="menu-card-desc">Home made rich beef bolognese sauce</div><div class="menu-card-price">$14.99 / $18.99 / $21.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Carbonara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Carbonara</div><div class="menu-card-desc">Garlic, bacon, spring onion, cream, cheese and egg</div><div class="menu-card-price">$14.99 / $18.99 / $21.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Creamy Chicken Mushroom pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Creamy Chicken Mushroom</div><div class="menu-card-desc">Chicken, mushroom, garlic, onion, cream and parmesan cheese</div><div class="menu-card-price">$14.99 / $18.99 / $21.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Big Vegetarian pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Big Vegetarian <span class="item-tag">Veg</span></div><div class="menu-card-desc">Garlic, onion, mushroom, olives, Napoli sauce, capsicum and parmesan cheese</div><div class="menu-card-price">$14.99 / $18.99 / $21.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Marinara pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Marinara</div><div class="menu-card-desc">Mixed seafood, garlic and Napoli sauce</div><div class="menu-card-price">$14.99 / $18.99 / $21.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Allapanna pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Allapanna</div><div class="menu-card-desc">Garlic, bacon, mushroom, spring onion, cream and parmesan cheese</div><div class="menu-card-price">$14.99 / $18.99 / $21.90</div></div></div>
+      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&q=70&auto=format&fit=crop" alt="Lasagna pasta" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Lasagna</div><div class="menu-card-desc">Cheese, layers of pasta, homemade beef bolognese sauce</div><div class="menu-card-price">$14.99 / $18.99 / $21.90</div></div></div>
     </div>
   </div>
 
@@ -139,7 +153,6 @@ const MENU_HTML = `
     <div class="sec-head"><h2>Sides</h2></div>
     <div class="sec-divider"></div>
     <div class="menu-grid">
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=70&auto=format&fit=crop" alt="Garlic bread" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Garlic Bread</div><div class="menu-card-price">$4</div></div></div>
       <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=70&auto=format&fit=crop" alt="Chicken nuggets" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chicken Nuggets</div><div class="menu-card-price">6 for $6</div></div></div>
       <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Arancini bolognese" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Arancini Bolognese</div><div class="menu-card-price">5 for $8.50</div></div></div>
       <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Arancini four cheese" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Arancini Four Cheese <span class="item-tag">Veg</span></div><div class="menu-card-price">5 for $8.50</div></div></div>
@@ -188,6 +201,20 @@ const MENU_HTML = `
 
 export default function MenuClient() {
   useEffect(() => {
+    const VALID_TABS = ["traditional", "gourmet", "special", "pasta", "mains", "deals", "sides", "drinks"];
+
+    // activate a tab by key (used for deep-links from the home page)
+    function activateTab(key) {
+      const section = document.getElementById("tab-" + key);
+      if (!section) return false;
+      document.querySelectorAll(".menu-section").forEach((s) => s.classList.remove("active"));
+      document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+      section.classList.add("active");
+      const btn = document.querySelector('.tab-btn[data-tab="' + key + '"]');
+      if (btn) btn.classList.add("active");
+      return true;
+    }
+
     // global handler for the inline onclick="showTab(...)" attributes
     window.showTab = function (tab, btn) {
       document.querySelectorAll(".menu-section").forEach((s) => s.classList.remove("active"));
@@ -196,6 +223,15 @@ export default function MenuClient() {
       if (el) el.classList.add("active");
       btn.classList.add("active");
     };
+
+    // deep-link: /menu?tab=pasta opens the matching category and scrolls to it
+    const requestedTab = new URLSearchParams(window.location.search).get("tab");
+    if (requestedTab && VALID_TABS.includes(requestedTab) && requestedTab !== "traditional") {
+      if (activateTab(requestedTab)) {
+        const tabsEl = document.querySelector(".menu-tabs");
+        if (tabsEl) tabsEl.scrollIntoView({ block: "start" });
+      }
+    }
 
     // price modal: click a card to see sizes / prices
     const overlay = document.getElementById("priceModal");
@@ -213,7 +249,7 @@ export default function MenuClient() {
         return [["Large", "$21"]];
       }
       if (sec === "tab-pasta") {
-        return [["Small", "$13"], ["Large", "$16"]];
+        return [["Small", "$14.99"], ["Large", "$18.99"], ["Marinara", "$21.90"]];
       }
       const p = card.querySelector(".menu-card-price");
       return [["Price", p ? p.textContent.trim() : ""]];

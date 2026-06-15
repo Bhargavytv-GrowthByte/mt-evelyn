@@ -50,7 +50,7 @@
   .lunch-banner-price span { display: block; font-family: var(--f-head); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-top: 4px; }
 
   /* —— tabs —— */
-  .menu-tabs { display: flex; gap: 0; padding: 46px 0 0; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; }
+  .menu-tabs { display: flex; gap: 0; padding: 46px 0 0; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; max-width: 1120px; margin: 0 auto; scroll-margin-top: 80px; }
   .menu-tabs::-webkit-scrollbar { display: none; }
   .tab-btn { font-family: var(--f-head); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; padding: 14px 24px; background: none; border: none; color: var(--cream-dim); cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -1px; transition: color .2s, border-color .2s; }
   .tab-btn:hover { color: var(--cream); }

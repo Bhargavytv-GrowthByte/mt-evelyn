@@ -7,10 +7,11 @@ const HOME_HTML = `
 <nav id="navbar" class="">
   <div class="nav-logo">Mt Evelyn <b>Pizza</b> &amp; <i>Pasta</i></div>
   <ul class="nav-links">
-    <li><a href="/menu">Lunch Deal</a></li>
+    <li><a href="/menu?tab=deals">Lunch Deal</a></li>
     <li><a href="/menu">Menu</a></li>
     <li><a href="#hours">Hours</a></li>
     <li><a href="#bar">Bar</a></li>
+    <li><a href="#catering">Catering</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="tel:0397363855" class="nav-cta">Call (03) 9736 3855</a>
@@ -24,7 +25,7 @@ const HOME_HTML = `
     <div class="feature">
       <div class="hero-carousel" id="heroCarousel">
         <!-- Feature 1: Lunch Deal poster -->
-        <a class="hero-slide feat-slide feat-img active" href="/menu">
+        <a class="hero-slide feat-slide feat-img active" href="/menu?tab=deals">
           <img src="/images/banner-1.jpg?v=3" alt="Mt Evelyn Pizza & Pasta — $9.99 Lunch Deal, Pizza + Coke, 12PM–4PM">
         </a>
 
@@ -51,14 +52,14 @@ const HOME_HTML = `
 
     <!-- RIGHT: stacked promo tiles -->
     <div class="promo-col">
-      <a class="promo-tile" href="/menu">
+      <a class="promo-tile" href="/menu?tab=traditional">
         <span class="ghost">$20</span>
         <div class="promo-kicker">Family Size</div>
         <div class="promo-title">Family Pizza</div>
         <div class="promo-price">From $20.00</div>
         <span class="promo-link">See Pizzas →</span>
       </a>
-      <a class="promo-tile t-green" href="/menu">
+      <a class="promo-tile t-green" href="/menu?tab=pasta">
         <span class="ghost">PASTA</span>
         <div class="promo-kicker">Hearty &amp; Fresh</div>
         <div class="promo-title">Pasta Classics</div>
@@ -105,7 +106,7 @@ const HOME_HTML = `
   </div>
 
   <div class="menu-preview reveal visible">
-    <a class="mp-card" href="/menu">
+    <a class="mp-card" href="/menu?tab=traditional">
       <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Pizza" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Pizza</div>
@@ -113,7 +114,7 @@ const HOME_HTML = `
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
-    <a class="mp-card" href="/menu">
+    <a class="mp-card" href="/menu?tab=pasta">
       <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Pasta" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Pasta</div>
@@ -121,15 +122,15 @@ const HOME_HTML = `
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
-    <a class="mp-card" href="/menu">
+    <a class="mp-card" href="/menu?tab=sides">
       <img src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=70&auto=format&fit=crop" alt="Sides" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Sides</div>
-        <div class="mp-note">From $6.90 · Garlic bread &amp; more</div>
+        <div class="mp-note">From $4.50 · Wedges, nuggets &amp; more</div>
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
-    <a class="mp-card" href="/menu">
+    <a class="mp-card" href="/menu?tab=drinks">
       <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Drinks" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Drinks</div>
@@ -208,6 +209,16 @@ const HOME_HTML = `
       <span>Spirits</span>
       <span>Cocktails</span>
     </div>
+  </div>
+</section>
+
+<!-- CATERING -->
+<section id="catering">
+  <div class="bar-card reveal">
+    <div class="section-tag" style="margin-bottom:20px;"><span class="brush gold">Now Available</span></div>
+    <h2 class="section-title">We Do <em>Catering</em></h2>
+    <p style="font-family:var(--f-body);color:var(--cream-dim);font-size:16px;line-height:1.7;max-width:560px;margin:18px auto 0;">From office lunches to parties and functions — let us cater your next event with fresh pizza, pasta and platters. Call us to plan a menu that suits.</p>
+    <a href="tel:0397363855" class="btn-primary" style="margin-top:28px;display:inline-block;">Call to Enquire — (03) 9736 3855</a>
   </div>
 </section>
 

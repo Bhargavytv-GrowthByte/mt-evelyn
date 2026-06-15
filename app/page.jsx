@@ -8,6 +8,18 @@ const DESC =
 export const metadata = {
   title: TITLE,
   description: DESC,
+  keywords: [
+    "pizza near me",
+    "pizza delivery near me",
+    "$9.90 lunch deal",
+    "pizza and coke deal",
+    "cheap pizza near me",
+    "pasta near me",
+    "takeaway pizza",
+    "family pizza deal",
+    "pizza pasta and bar",
+    "gluten free pizza",
+  ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
