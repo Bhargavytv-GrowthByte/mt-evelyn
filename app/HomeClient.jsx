@@ -5,9 +5,9 @@ import "./home.css";
 
 const HOME_HTML = `
 <nav id="navbar" class="">
-  <div class="nav-logo">Mt Evelyn <b>Pizza</b> &amp; <i>Pasta</i></div>
+  <a class="nav-logo" href="#home" aria-label="Mt Evelyn Pizza & Pasta · Lounge Bar"><img src="/images/logo.png?v=1" alt="Mt Evelyn Pizza & Pasta · Lounge Bar"></a>
   <ul class="nav-links">
-    <li><a href="/menu?tab=deals">Lunch Deal</a></li>
+    <li><a href="/menu?deal=lunch">Lunch Deal</a></li>
     <li><a href="/menu">Menu</a></li>
     <li><a href="#hours">Hours</a></li>
     <li><a href="#bar">Bar</a></li>
@@ -39,6 +39,16 @@ const HOME_HTML = `
           <img src="/images/banner-3.jpg?v=3" alt="Mt Evelyn Pizza & Pasta — Open for lunch, new trading hours" loading="lazy">
         </a>
 
+        <!-- Feature 4: Family Deal poster -->
+        <a class="hero-slide feat-slide feat-img" href="/menu?tab=deals">
+          <img src="/images/banner-4.jpg?v=2" alt="Mt Evelyn Pizza & Pasta — Dinner Family Deal, 2 family pizzas, 2 garlic bread & 1.25L drink, only $45.99" loading="lazy">
+        </a>
+
+        <!-- Feature 5: Dinner Deal poster -->
+        <a class="hero-slide feat-slide feat-img" href="/menu?tab=deals">
+          <img src="/images/banner-5.jpg?v=2" alt="Mt Evelyn Pizza & Pasta — Dinner Deal 1, 2 large pizzas, garlic bread & 1.25L drink, $34.99" loading="lazy">
+        </a>
+
         <button class="car-arrow prev" id="heroPrev" aria-label="Previous banner">‹</button>
         <button class="car-arrow next" id="heroNext" aria-label="Next banner">›</button>
       </div>
@@ -47,17 +57,19 @@ const HOME_HTML = `
         <button class="dot-nav active" aria-label="Banner 1"></button>
         <button class="dot-nav" aria-label="Banner 2"></button>
         <button class="dot-nav" aria-label="Banner 3"></button>
+        <button class="dot-nav" aria-label="Banner 4"></button>
+        <button class="dot-nav" aria-label="Banner 5"></button>
       </div>
     </div>
 
     <!-- RIGHT: stacked promo tiles -->
     <div class="promo-col">
-      <a class="promo-tile" href="/menu?tab=traditional">
-        <span class="ghost">$20</span>
-        <div class="promo-kicker">Family Size</div>
-        <div class="promo-title">Family Pizza</div>
-        <div class="promo-price">From $20.00</div>
-        <span class="promo-link">See Pizzas →</span>
+      <a class="promo-tile lunch-tile" id="lunchTile" href="/menu?deal=lunch">
+        <span class="ghost">$9.99</span>
+        <div class="promo-kicker">Pizza + Can of Drink</div>
+        <div class="promo-title">Lunch Deal</div>
+        <div class="promo-price">$9.99</div>
+        <span class="promo-link" id="lunchTileLink">Order Lunch Deal →</span>
       </a>
       <a class="promo-tile t-green" href="/menu?tab=pasta">
         <span class="ghost">PASTA</span>
@@ -73,30 +85,6 @@ const HOME_HTML = `
   <div class="scroll-indicator"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
-<!-- INFO STRIP -->
-<div class="info-strip">
-  <div class="info-item">
-    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
-    <div class="info-label">Location</div>
-    <div class="info-val">11A York Road, Mt Evelyn VIC</div>
-  </div>
-  <div class="info-item">
-    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"></path></svg></div>
-    <div class="info-label">Phone</div>
-    <div class="info-val">(03) 9736 3855</div>
-  </div>
-  <div class="info-item">
-    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></div>
-    <div class="info-label">Lunch</div>
-    <div class="info-val">Open from 12PM, Thu–Sat</div>
-  </div>
-  <div class="info-item">
-    <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18"></path></svg></div>
-    <div class="info-label">Order Online</div>
-    <div class="info-val">mtevelynpizzas.com.au</div>
-  </div>
-</div>
-
 <!-- MENU CTA -->
 <section id="menu">
   <div class="menu-header reveal visible" style="text-align:center;">
@@ -110,7 +98,7 @@ const HOME_HTML = `
       <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=70&auto=format&fit=crop" alt="Pizza" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Pizza</div>
-        <div class="mp-note">From $11 · Classic &amp; Gourmet</div>
+        <div class="mp-note">From $11.99 · Classic &amp; Gourmet</div>
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
@@ -118,7 +106,7 @@ const HOME_HTML = `
       <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Pasta" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Pasta</div>
-        <div class="mp-note">From $16.90 · Made to order</div>
+        <div class="mp-note">From $13 · Made to order</div>
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
@@ -126,7 +114,7 @@ const HOME_HTML = `
       <img src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=70&auto=format&fit=crop" alt="Sides" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Sides</div>
-        <div class="mp-note">From $4.50 · Wedges, nuggets &amp; more</div>
+        <div class="mp-note">From $4 · Wedges, nuggets &amp; more</div>
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
@@ -134,7 +122,7 @@ const HOME_HTML = `
       <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=500&q=70&auto=format&fit=crop" alt="Drinks" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Drinks</div>
-        <div class="mp-note">From $2.50 · Cans, bottles &amp; juice</div>
+        <div class="mp-note">From $3.50 · Cans, bottles &amp; water</div>
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
@@ -314,6 +302,27 @@ export default function HomeClient() {
         carousel.removeEventListener("mouseenter", stop);
         carousel.removeEventListener("mouseleave", start);
       });
+    }
+
+    // Lunch Deal tile: only clickable 12PM–4PM, Thursday–Saturday (Melbourne time)
+    const lunchTile = document.getElementById("lunchTile");
+    if (lunchTile) {
+      const link = document.getElementById("lunchTileLink");
+      const now = new Date();
+      const wd = new Intl.DateTimeFormat("en-US", { timeZone: "Australia/Melbourne", weekday: "short" }).format(now);
+      const hr = parseInt(
+        new Intl.DateTimeFormat("en-US", { timeZone: "Australia/Melbourne", hour: "2-digit", hour12: false }).format(now),
+        10
+      );
+      const openNow = ["Thu", "Fri", "Sat"].includes(wd) && hr >= 12 && hr < 16;
+      if (!openNow) {
+        lunchTile.classList.add("closed");
+        lunchTile.setAttribute("aria-disabled", "true");
+        if (link) link.textContent = "Closed now · 12PM–4PM Thu–Sat";
+        const block = (e) => e.preventDefault();
+        lunchTile.addEventListener("click", block);
+        cleanups.push(() => lunchTile.removeEventListener("click", block));
+      }
     }
 
     // scroll reveal

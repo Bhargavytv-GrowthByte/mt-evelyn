@@ -24,8 +24,8 @@
 
   /* —— NAV —— */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 14px 48px; background: rgba(8,7,6,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
-  .nav-logo { font-family: var(--f-display); font-size: 22px; letter-spacing: 0.04em; line-height: 1; color: var(--cream); text-transform: none; text-decoration: none; }
-  .nav-logo b { color: var(--red); font-weight: 400; } .nav-logo i { color: var(--green); font-style: normal; }
+  .nav-logo { display: flex; align-items: center; line-height: 0; text-decoration: none; }
+  .nav-logo img { height: 64px; width: auto; display: block; }
   .nav-links { display: flex; gap: 30px; list-style: none; }
   .nav-links a { font-family: var(--f-head); font-size: 13px; font-weight: 500; letter-spacing: 0.1em; color: var(--cream-dim); text-decoration: none; text-transform: uppercase; transition: color .2s; position: relative; }
   .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0; background: var(--gold); transition: width .25s; }
