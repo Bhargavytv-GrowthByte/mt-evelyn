@@ -148,14 +148,14 @@ const MENU_HTML = `
     <div class="sec-head"><h2>Sides</h2></div>
     <div class="sec-divider"></div>
     <div class="menu-grid">
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1619535860434-ba1d8fa12536?w=500&q=70&auto=format&fit=crop" alt="Garlic bread" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Garlic Bread <span class="item-tag">Veg</span></div><div class="menu-card-price">$4</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=70&auto=format&fit=crop" alt="Chicken nuggets" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chicken Nuggets</div><div class="menu-card-price">6 for $6</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Arancini bolognese" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Arancini Bolognese</div><div class="menu-card-price">5 for $8.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Arancini four cheese" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Arancini Four Cheese <span class="item-tag">Veg</span></div><div class="menu-card-price">5 for $8.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1639024471283-03518883512d?w=500&q=70&auto=format&fit=crop" alt="Onion rings" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Onion Rings <span class="item-tag">Veg</span></div><div class="menu-card-price">10 for $8.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Wedges" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Wedges</div><div class="menu-card-price">$8.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=500&q=70&auto=format&fit=crop" alt="Spring rolls" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Spring Rolls <span class="item-tag">Veg</span></div><div class="menu-card-price">6 for $8.50</div></div></div>
-      <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=500&q=70&auto=format&fit=crop" alt="Chips" loading="lazy"><div class="menu-card-body"><div class="menu-card-name">Chips</div><div class="menu-card-price">$7</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Garlic Bread <span class="item-tag">Veg</span></div><div class="menu-card-price">$4</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Chicken Nuggets</div><div class="menu-card-price">6 for $6</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Arancini Bolognese</div><div class="menu-card-price">5 for $8.50</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Arancini Four Cheese <span class="item-tag">Veg</span></div><div class="menu-card-price">5 for $8.50</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Onion Rings <span class="item-tag">Veg</span></div><div class="menu-card-price">10 for $8.50</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Wedges</div><div class="menu-card-price">$8.50</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Spring Rolls <span class="item-tag">Veg</span></div><div class="menu-card-price">6 for $8.50</div></div></div>
+      <div class="menu-card no-img"><div class="menu-card-body"><div class="menu-card-name">Chips</div><div class="menu-card-price">$7</div></div></div>
     </div>
   </div>
 
@@ -262,6 +262,7 @@ export default function MenuClient() {
       const descEl = card.querySelector(".menu-card-desc");
       mImg.src = img ? img.src : "";
       mImg.alt = nameEl ? nameEl.textContent.trim() : "";
+      mImg.style.display = img ? "block" : "none";
       mName.textContent = nameEl ? nameEl.childNodes[0].textContent.trim() : "";
       mDesc.textContent = descEl ? descEl.textContent.trim() : "";
       mDesc.style.display = descEl ? "block" : "none";

@@ -74,6 +74,8 @@
   .menu-card:hover { transform: translateY(-5px); border-color: var(--gold); box-shadow: 0 16px 38px rgba(0,0,0,0.4); }
   .menu-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: var(--panel-2); transition: transform .4s ease; }
   .menu-card:hover .menu-card-img { transform: scale(1.06); }
+  .menu-card.no-img { border-left: 3px solid var(--gold); }
+  .menu-card.no-img .menu-card-body { padding: 20px 20px 22px; }
   .menu-card-body { padding: 16px 18px 20px; display: flex; flex-direction: column; flex: 1; }
   .menu-card-name { font-family: var(--f-head); font-size: 17px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--cream); margin-bottom: 7px; line-height: 1.2; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .menu-card-desc { font-family: var(--f-body); font-size: 13px; color: var(--cream-dim); line-height: 1.55; flex: 1; }
