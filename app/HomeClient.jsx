@@ -106,7 +106,7 @@ const HOME_HTML = `
       <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=500&q=70&auto=format&fit=crop" alt="Pasta" loading="lazy">
       <div class="mp-body">
         <div class="mp-title">Pasta</div>
-        <div class="mp-note">From $13 · Made to order</div>
+        <div class="mp-note">From $13.99 · Made to order</div>
         <span class="mp-link">View Menu →</span>
       </div>
     </a>
